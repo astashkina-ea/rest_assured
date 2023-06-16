@@ -1,8 +1,10 @@
 package homework;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
+
+import static io.restassured.RestAssured.*;
 import static io.restassured.http.ContentType.JSON;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.is;
@@ -10,13 +12,19 @@ import static org.hamcrest.Matchers.is;
 
 public class ReqresInTests {
 
+    @BeforeEach
+    public void beforeEach(){
+        baseURI = "https://reqres.in";
+        basePath = "/api";
+    }
+
     @Test
     void checkEmailUser() {
         given()
                 .log().uri()
                 .log().body()
                 .when()
-                .get("https://reqres.in/api/users?page=2")
+                .get("/users?page=2")
                 .then()
                 .log().status()
                 .log().body()
@@ -33,7 +41,7 @@ public class ReqresInTests {
                 .contentType(JSON)
                 .body(body)
                 .when()
-                .post("https://reqres.in/api/users")
+                .post("/users")
                 .then()
                 .log().status()
                 .log().body()
@@ -52,7 +60,7 @@ public class ReqresInTests {
                 .contentType(JSON)
                 .body(body)
                 .when()
-                .put("https://reqres.in/api/users/2")
+                .put("/users/2")
                 .then()
                 .log().status()
                 .log().body()
@@ -70,7 +78,7 @@ public class ReqresInTests {
                 .contentType(JSON)
                 .body(body)
                 .when()
-                .patch("https://reqres.in/api/users/2")
+                .patch("/users/2")
                 .then()
                 .log().status()
                 .log().body()
@@ -84,7 +92,7 @@ public class ReqresInTests {
         given()
                 .log().uri()
                 .when()
-                .delete("https://reqres.in/api/users/2")
+                .delete("/users/2")
                 .then()
                 .log().status()
                 .log().body()
@@ -96,7 +104,7 @@ public class ReqresInTests {
         given()
                 .log().uri()
                 .when()
-                .get("https://reqres.in/api/users/23")
+                .get("/users/23")
                 .then()
                 .log().status()
                 .log().body()
