@@ -55,6 +55,7 @@ public class LoginUserTests {
     @DisplayName("Unsuccessful login with")
     @ParameterizedTest(name = "email: {0} and password:{1}")
     void unsuccessfulLoginTest(String email, String password, String errorText) {
+
         LoginUserNameRequest requestBody = new LoginUserNameRequest();
 
         requestBody.setEmail(email);

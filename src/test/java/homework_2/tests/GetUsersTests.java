@@ -9,7 +9,7 @@ public class GetUsersTests {
 
     //TO DO
     @Test
-    void checkEmailUser() {
+    void checkEmailUserTest() {
         given()
                 .log().uri()
                 .log().body()
@@ -24,6 +24,7 @@ public class GetUsersTests {
 
     @Test
     void checkNegativeUserNot() {
+
         given()
                 .log().uri()
                 .when()

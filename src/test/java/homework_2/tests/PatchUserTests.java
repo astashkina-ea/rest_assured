@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static homework_2.specs.Specs.requestSpec;
 import static homework_2.specs.Specs.response200Spec;
-import static homework_2.utils.RandomUtils.getRandomBetweenNumber;
+import static homework_2.utils.RandomUtils.*;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,16 +19,14 @@ public class PatchUserTests {
 
     @Test
     @DisplayName("Successful user update")
-    void checkUpdateUserPatch() {
-
+    void checkUpdateUserPatchTest() {
         UserRequest requestBody = new UserRequest();
 
-        String name = RandomUtils.getRandomName();
-        String job = RandomUtils.getRandomJob();
+        String name = getRandomName();
+        String job = getRandomJob();
 
         requestBody.setName(name);
         requestBody.setJob(job);
-
 
         UpdateUserResponse response = step("Make request", () ->
                 given(requestSpec)

@@ -1,7 +1,5 @@
 package homework_2.tests;
 
-import homework_2.specs.Specs;
-import homework_2.utils.RandomUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +13,7 @@ public class DeleteUserTests {
 
     @Test
     @DisplayName("Successful user deletion")
-    void checkDeleteUser() {
-
+    void checkDeleteUserTest() {
         step("Make request", () ->
                 given(requestSpec)
                         .when()

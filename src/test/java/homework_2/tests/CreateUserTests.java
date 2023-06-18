@@ -3,7 +3,6 @@ package homework_2.tests;
 import homework_2.models.CreateUserResponse;
 import homework_2.models.UserRequest;
 import homework_2.utils.RandomUtils;
-import io.qameta.allure.Allure;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,8 +17,7 @@ public class CreateUserTests {
 
     @Test
     @DisplayName("Successful user creation")
-    void checkCreateUser() {
-
+    void checkCreateUserTest() {
         UserRequest requestBody = new UserRequest();
 
         String name = RandomUtils.getRandomName();

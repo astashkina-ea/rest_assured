@@ -1,7 +1,6 @@
 package homework_2.utils;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.Job;
 
 import java.security.SecureRandom;
 import java.util.Locale;
@@ -39,6 +38,4 @@ public class RandomUtils {
     public static int getRandomBetweenNumber(int min, int max) {
         return fakerEn.random().nextInt(min, max);
     }
-
-
 }
