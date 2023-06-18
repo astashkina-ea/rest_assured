@@ -1,4 +1,4 @@
-package specs;
+package lesson.specs;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;

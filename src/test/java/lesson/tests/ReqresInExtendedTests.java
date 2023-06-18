@@ -14,8 +14,8 @@ import static io.restassured.http.ContentType.JSON;
 import static lesson.helpers.CustomAllureListener.withCustomTemplates;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.LoginSpecs.loginRequestSpec;
-import static specs.LoginSpecs.loginResponseSpec;
+import static lesson.specs.LoginSpecs.loginRequestSpec;
+import static lesson.specs.LoginSpecs.loginResponseSpec;
 
 public class ReqresInExtendedTests {
 
