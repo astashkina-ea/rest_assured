@@ -15,6 +15,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Tag("api")
+@DisplayName("Create User API")
 public class CreateUserTests {
 
     @Test

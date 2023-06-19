@@ -11,6 +11,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
 @Tag("api")
+@DisplayName("Delete User API")
 public class DeleteUserTests {
 
     @Test

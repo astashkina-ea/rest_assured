@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Tag("api")
+@DisplayName("Login User API")
 public class LoginUserTests {
 
     @Test
