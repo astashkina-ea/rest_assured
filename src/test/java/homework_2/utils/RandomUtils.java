@@ -3,6 +3,7 @@ package homework_2.utils;
 import com.github.javafaker.Faker;
 
 import java.security.SecureRandom;
+import java.util.List;
 import java.util.Locale;
 
 public class RandomUtils {
@@ -37,5 +38,10 @@ public class RandomUtils {
 
     public static int getRandomBetweenNumber(int min, int max) {
         return fakerEn.random().nextInt(min, max);
+    }
+
+    public static <T> T getRandomElementFromList(List<T> list) {
+        int index = getRandomBetweenNumber(0, list.size() - 1);
+        return list.get(index);
     }
 }

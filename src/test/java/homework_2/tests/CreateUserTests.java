@@ -1,7 +1,8 @@
 package homework_2.tests;
 
-import homework_2.models.CreateUserResponse;
-import homework_2.models.UserRequest;
+import homework_2.models.CreateUserResponseModel;
+import homework_2.models.UserRequestModel;
+import homework_2.utils.DateTimeUtils;
 import homework_2.utils.RandomUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,15 +11,16 @@ import static homework_2.specs.Specs.requestSpec;
 import static homework_2.specs.Specs.response201Spec;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateUserTests {
 
     @Test
     @DisplayName("Successful user creation")
     void checkCreateUserTest() {
-        UserRequest requestBody = new UserRequest();
+        long currentTimeInSeconds = DateTimeUtils.getCurrentTimeInSeconds();
+
+        UserRequestModel requestBody = new UserRequestModel();
 
         String name = RandomUtils.getRandomName();
         String job = RandomUtils.getRandomJob();
@@ -26,14 +28,16 @@ public class CreateUserTests {
         requestBody.setName(name);
         requestBody.setJob(job);
 
-        CreateUserResponse response = step("Make request", () ->
+        CreateUserResponseModel response = step("Make request", () ->
                 given(requestSpec)
                         .body(requestBody)
                         .when()
                         .post("/users")
                         .then()
                         .spec(response201Spec)
-                        .extract().as(CreateUserResponse.class));
+                        .extract().as(CreateUserResponseModel.class));
+
+        long createdAtInSeconds = DateTimeUtils.getIsoFormatTimeToSeconds(response.getCreatedAt());
 
         step("Check user name in response body", () ->
                 assertEquals(name, response.getName()));
@@ -45,6 +49,6 @@ public class CreateUserTests {
                 assertNotNull(response.getId()));
 
         step("Check date of creation in response body", () ->
-                assertNotNull(response.getCreatedAt()));
+                assertTrue(createdAtInSeconds >= currentTimeInSeconds));
     }
 }

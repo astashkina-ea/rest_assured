@@ -22,22 +22,19 @@ public class LoginUserTests {
     @Test
     @DisplayName("Successful login")
     void successfulLoginTest() {
-        LoginUserNameRequest requestBody = new LoginUserNameRequest();
+        LoginUserNameRequestModel requestBody = new LoginUserNameRequestModel();
 
-        String email = "eve.holt@reqres.in";
-        String password = "cityslicka";
+        requestBody.setEmail("eve.holt@reqres.in");
+        requestBody.setPassword("cityslicka");
 
-        requestBody.setEmail(email);
-        requestBody.setPassword(password);
-
-        LoginUserNameResponse response = step("Make request", () ->
+        LoginUserNameResponseModel response = step("Make request", () ->
                 given(requestSpec)
                         .body(requestBody)
                         .when()
                         .post("/login")
                         .then()
                         .spec(response200Spec)
-                        .extract().as(LoginUserNameResponse.class));
+                        .extract().as(LoginUserNameResponseModel.class));
 
         step("Check error text in response", () ->
                 assertNotNull(response.getToken()));
@@ -56,19 +53,19 @@ public class LoginUserTests {
     @ParameterizedTest(name = "email: {0} and password:{1}")
     void unsuccessfulLoginTest(String email, String password, String errorText) {
 
-        LoginUserNameRequest requestBody = new LoginUserNameRequest();
+        LoginUserNameRequestModel requestBody = new LoginUserNameRequestModel();
 
         requestBody.setEmail(email);
         requestBody.setPassword(password);
 
-        LoginUserNameUnsuccessfulResponse response = step("Make request", () ->
+        LoginUserNameUnsuccessfulResponseModel response = step("Make request", () ->
                 given(requestSpec)
                         .body(requestBody)
                         .when()
                         .post("/login")
                         .then()
                         .spec(response400Spec)
-                        .extract().as(LoginUserNameUnsuccessfulResponse.class));
+                        .extract().as(LoginUserNameUnsuccessfulResponseModel.class));
 
         step("Check error text in response", () ->
                 assertEquals(errorText, response.getError()));
