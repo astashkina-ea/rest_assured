@@ -3,6 +3,7 @@ package homework_2.tests;
 import homework_2.models.getUsersResponse.RootModel;
 import homework_2.testData.UsersList;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("api")
 public class GetUsersTests {
 
     @Test

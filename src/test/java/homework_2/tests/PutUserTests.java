@@ -4,6 +4,7 @@ import homework_2.models.UpdateUserResponseModel;
 import homework_2.models.UserRequestModel;
 import homework_2.utils.DateTimeUtils;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static homework_2.specs.Specs.requestSpec;
@@ -13,6 +14,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("api")
 public class PutUserTests {
 
     @Test

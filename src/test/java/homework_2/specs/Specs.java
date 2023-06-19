@@ -1,8 +1,10 @@
 package homework_2.specs;
 
+import homework.config.ConfigUri;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.*;
@@ -11,12 +13,14 @@ import static lesson.helpers.CustomAllureListener.withCustomTemplates;
 
 public class Specs {
 
+    private static ConfigUri config = ConfigFactory.create(ConfigUri.class, System.getProperties());
+
     public static RequestSpecification requestSpec = with()
             .log().uri()
             .log().body()
             .filter(withCustomTemplates())
             .contentType(JSON)
-            .baseUri("https://reqres.in")
+            .baseUri(config.getBaseUri())
             .basePath("/api");
 
     public static ResponseSpecification response200Spec = new ResponseSpecBuilder()
