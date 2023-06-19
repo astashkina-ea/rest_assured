@@ -35,4 +35,5 @@ public class UsersList {
     public String getAvatar() {
         return avatar;
     }
+
 }

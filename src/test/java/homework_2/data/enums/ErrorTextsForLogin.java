@@ -15,4 +15,5 @@ public enum ErrorTextsForLogin {
     public String getText() {
         return text;
     }
+
 }

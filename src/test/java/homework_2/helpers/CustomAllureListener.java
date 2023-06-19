@@ -10,4 +10,5 @@ public class CustomAllureListener {
         FILTER.setResponseTemplate("response.ftl");
         return FILTER;
     }
+
 }
