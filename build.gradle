@@ -8,11 +8,12 @@ repositories {
     mavenCentral()
 }
 
-def restAssuredVersion = "5.3.0",
-    allureVersion = "2.22.1",
-    slf4jVersion = "2.0.7",
-    junit = "5.9.2",
-    javafaker = "1.0.2"
+def selenideVersion = "6.15.0",
+        restAssuredVersion = "5.3.0",
+        allureVersion = "2.22.1",
+        slf4jVersion = "2.0.7",
+        junit = "5.9.2",
+        javafaker = "1.0.2"
 
 allure {
     report {
@@ -30,6 +31,7 @@ allure {
 
 dependencies {
     testImplementation(
+            "com.codeborne:selenide:$selenideVersion",
             "io.rest-assured:rest-assured:$restAssuredVersion",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
@@ -56,7 +58,7 @@ test {
 }
 
 task api_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags("api")
     }
 }
