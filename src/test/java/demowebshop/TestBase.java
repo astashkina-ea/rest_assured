@@ -1,4 +1,4 @@
-package lesson.tests.demowebshop;
+package demowebshop;
 
 import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;

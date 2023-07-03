@@ -1,4 +1,4 @@
-package homework.config;
+package homework_2.config;
 
 import org.aeonbits.owner.Config;
 

@@ -1,6 +1,6 @@
 package homework_2.specs;
 
-import homework.config.ConfigUri;
+import homework_2.config.ConfigUri;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
