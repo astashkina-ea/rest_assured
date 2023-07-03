@@ -1,4 +1,4 @@
-package demowebshop;
+package lesson.tests.demowebshop;
 
 import org.junit.jupiter.api.Test;
 

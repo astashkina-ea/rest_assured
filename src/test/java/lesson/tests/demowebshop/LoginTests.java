@@ -1,4 +1,4 @@
-package demowebshop;
+package lesson.tests.demowebshop;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
